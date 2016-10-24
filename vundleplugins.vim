@@ -17,7 +17,7 @@ endif
 exec 'set rtp^='.bundle_dir.'Vundle.vim/'
 
 call vundle#begin()                                                                   " 請將安裝插的命令放在 vundle#begin 和 vundle#end 之間.
-" Plugin 'VundleVim/Vundle.vim'  
+"pPlugin 'VundleVim/Vundle.vim'
 
 " -----------------------------
 
@@ -25,12 +25,18 @@ Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/tabular-master'
 Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/vim-indent-guides-master' " 設置花括號内内容比對
 Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/nerdtree-5.0.0' " 設置Tree
 " Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/nerdtree-git-plugin-master' " 設置Tree - git
-Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/vim-multiple-cursors-master' " 列選擇                   
-Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/ctrlp.vim-master' " 模糊查詢        
-Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/vim-airline-master' " 狀態欄        
-Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/vim-airline-themes-master'                                                               
-" Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/vim-bufexplorer-7.4.9'   "列出一打開的文件然後跳轉                                                      
-" Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/vjde'              " vjde        
+Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/vim-multiple-cursors-master' " 列選擇
+Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/ctrlp.vim-master' " 模糊查詢
+Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/vim-airline-master' " 狀態欄
+Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/vim-airline-themes-master'
+" Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/vim-bufexplorer-7.4.9'   "列出一打開的文件然後跳轉
+" Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/vjde'              " vjde
+Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/asyncrun.vim-master' " 異步
+Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/undotree-rel_5.0' " undo  need vim to be compiled python2.4+
+" Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/gundo.vim-2.6.1' " undo  need vim to be compiled python2.4+
+" Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/tagbar-master' " tab exubarant ctags
+Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/nerdcommenter-2.4.0' " commenter
+Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/vim-autoformat-master' " formatter  need to install astyle
 
 " -----------------------------
 
@@ -46,7 +52,7 @@ filetype plugin indent on                                                       
 "
 " 查閱 :h vundle 獲取更多細節和wiki以及FAQ
 " ============================Vundle End==========================================
- 
+
 
 " ============================Plugins indent-guides Start=========================
 let g:indent_guides_enable_on_vim_startup=1
@@ -64,8 +70,6 @@ let NERDTreeWinSize=58 " 设置NERDTree子窗口位置
 let NERDTreeWinPos="right"
 " 显示隐藏文件
 let NERDTreeShowHidden=1
-" NERDTree 子窗口中不显示冗余帮助信息
-let NERDTreeMinimalUI=1
 " 删除文件时自动删除文件对应 buffer
 let NERDTreeAutoDeleteBuffer=1
 let NERDTreeShowBookmarks=1
@@ -74,6 +78,8 @@ let NERDTreeShowLineNumbers=1 " 显示行号
 let NERDTreeAutoCenter=1
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " 当所有文件关闭时关闭项目树窗格
+autocmd vimenter * if !argc() | NERDTree | endif  "open a NERDTree automatically when vim starts up if no files were specified
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 " ============================Plugins nerdTree End===========================
 
 " ============================Plugins vim-multiple-cursors Start======================
@@ -97,10 +103,10 @@ set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe,*.class  " Windows
 
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|vim)$'
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn|vim)$',
-  \ 'file': '\v\.(exe|so|dll)$',
-  \ 'link': 'some_bad_symbolic_links',
-  \ }
+            \ 'dir':  '\v[\/]\.(git|hg|svn|vim)$',
+            \ 'file': '\v\.(exe|so|dll)$',
+            \ 'link': 'some_bad_symbolic_links',
+            \ }
 let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d'  " Windows
 
 " ============================Plugins ctrlP End=======================
@@ -112,9 +118,27 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 " let g:airline_theme='term'
 " ============================Plugins vim-airline-master End=======================
 
+" ============================Plugins undo Start=======================
+nnoremap <C-r> :UndotreeToggle<CR><C-w>h
+" let g:gundo_width = 60
+" let g:gundo_preview_height = 40
+" let g:gundo_right = 0
+" ============================Plugins undo End=======================
+
+" ============================Plugins commenter Start=======================
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+" 注释的时候自动加个空格, 强迫症必配
+let g:NERDSpaceDelims=1
+" ============================Plugins commenter End=======================
 
 
-
+" ============================Plugins formaater Start=======================
+" noremap <F3> :Autoformat<CR>
+" let g:formatdef_harttle = '"astyle --style=attach --pad-oper"'
+" let g:formatters_cpp = ['harttle']
+" let g:formatters_java = ['harttle']
+" ============================Plugins formaater End=======================
 
 
 
