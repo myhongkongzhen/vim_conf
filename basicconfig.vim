@@ -1,5 +1,23 @@
 
 
+" ============================EeyStart======================================
+" <C-o> jumplist like <C-A-DOWN>
+" <C-i> jumplist like <C-A-UP>
+" d(delete)3w(word) 删除三个词
+
+" d(delete)5j(lines) 删除6行（包括当前行）
+" c(hange)w(word) 替换一个词
+" d(delete)t(till){ 删除直到{字符之前
+" d(delete)i(inside)p(paragraph) 删除一个段落
+" z(scroll)t(top) 当前光标行滚动到顶部
+" z(scroll)b(bottom) 当前光标行滚动到底部
+" 6j(down) 光标下移6行
+"
+" ============================Key End======================================
+
+" 定义快捷键的前缀，即<Leader>
+let mapleader=","
+ 
 " ============================Encoding Start======================================
 set langmenu=en_US.UTF-8
 language message en_US.UTF-8
@@ -75,8 +93,6 @@ au bufwinleave * silent mkview " 保存文件的折叠状态
 au BufRead * silent loadview " 恢复文件的折叠状态
 " nnoremap <space> za " 用空格来切换折叠状态,zM，关闭所有折叠；zR，打开所有折叠
 " nnoremap <C-S-+> za " 用空格来切换折叠状态,zM，关闭所有折叠；zR，打开所有折叠
-" 定义快捷键的前缀，即<Leader>
-let mapleader=","
 " nmap <leader>s :source $VIM/_vimrc<cr>
 " nmap <leader>e :e $VIM/_vimrc<cr>
 
@@ -93,7 +109,22 @@ set nocursorbind
 " ============================Common End=================================
 
 
+" ============================Key Start=================================
+map <A-5> :copen 30<CR>
+imap <A-5> <Esc>:copen<CR>
 
+" nnoremap j jzz " zz 將光標置於屏幕中央
+" nnoremap k kzz
+"
+nnoremap <esc> :nohl<cr> " 搜索完之後去掉高亮
+
+" imap {<CR> {}<ESC>i
+imap (<CR> ()<ESC>i
+imap [<CR> []<ESC>i
+
+"假如你的花括号是需要另起一行的可以用这个
+imap {<CR> {<CR>}<ESC>O
+" ============================Key End=================================
 
 
 
