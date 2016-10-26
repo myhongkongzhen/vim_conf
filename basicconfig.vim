@@ -17,7 +17,7 @@
 
 " 定义快捷键的前缀，即<Leader>
 let mapleader=","
- 
+
 " ============================Encoding Start======================================
 set langmenu=en_US.UTF-8
 language message en_US.UTF-8
@@ -28,9 +28,42 @@ set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 set ambiwidth=double           " 防止特殊符号无法正常显示,如五角星等1
 " ============================Encoding End======================================
 
+" ============================Scheme color Start======================================
+" if version >= 700 && &term != 'cygwin' && !has('gui_running')
+set t_Co=256
+"     if &t_Co == 256 || &t_Co == 88
+"         if has('gui') &&
+"                     \ (filereadable(expand("$HOME/.vim/plugin/CSApprox.vim")) ||
+"                     \  filereadable(expand("$HOME/vimfiles/plugin/CSApprox.vim")))
+"             let s:use_CSApprox = 1
+"         elseif filereadable(expand("$HOME/.vim/plugin/guicolorscheme.vim")) ||
+"                     \    filereadable(expand("$HOME/vimfiles/plugin/guicolorscheme.vim"))
+"             let s:use_guicolorscheme = 1
+"         endif
+"     endif
+" endif
+" if exists('s:use_CSApprox')
+"     let g:CSApprox_attr_map = { 'bold' : 'bold', 'italic' : '', 'sp' : '' }
+"     colorscheme rastafari
+" elseif exists('s:use_guicolorscheme')
+"     runtime! plugin/guicolorscheme.vim
+"     GuiColorScheme rastafari
+" else
+"     colorscheme rastafari
+" endif
+
+set background=dark
+if has('gui_running')
+    colorscheme torte
+else
+"   colorscheme torte
+endif
+
+" ============================Scheme color End======================================
+
 " ============================Common Start=================================
 set go=                                                                          " 无菜单、工具栏          
-colorscheme torte
+
 " highlight Comment ctermfg=darkcyan
 au GUIEnter * simalt ~x " 自動全屏顯示
 " winpos 1 1                                                                       " 设置启动位置
