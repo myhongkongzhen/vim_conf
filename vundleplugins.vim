@@ -31,13 +31,17 @@ Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/vim-airline-mas
 Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/vim-airline-themes-master'
 " Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/vim-bufexplorer-7.4.9'   "列出一打開的文件然後跳轉
 " Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/vjde'              " vjde
-Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/asyncrun.vim-master' " 異步
+" Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/asyncrun.vim-master' " 異步
 Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/undotree-rel_5.0' " undo  need vim to be compiled python2.4+
-" Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/gundo.vim-2.6.1' " undo  need vim to be compiled python2.4+
+" Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/gundo.vim-2.6.1' " undo 
 " Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/tagbar-master' " tab exubarant ctags
-Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/nerdcommenter-2.4.0' " commenter
+Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/nerdcommenter-2.4.0' " commenter註解
 Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/vim-autoformat-master' " formatter  need to install astyle
-
+Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/vim-markdown-master' "  markdown
+" Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/vim-instant-markdown-windows' "  markdown
+Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/vim-javacomplete2-master' " java autocomplete 
+" Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/vim-colors-xterm-master' " color 
+" Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/vim-colors-solarized-master' " console color 
 " -----------------------------
 
 call vundle#end()                                                                     " 必須 所有插件需要在下面這行之前
@@ -130,6 +134,18 @@ nnoremap <C-r> :UndotreeToggle<CR><C-w>h
 let g:NERDSpaceDelims = 1
 " 注释的时候自动加个空格, 强迫症必配
 let g:NERDSpaceDelims=1
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+" Set a language to use its alternate delimiters by default
+let g:NERDAltDelims_java = 1
+" Add your own custom formats or override the defaults
+let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
 " ============================Plugins commenter End=======================
 
 
@@ -140,7 +156,33 @@ let g:NERDSpaceDelims=1
 " let g:formatters_java = ['harttle']
 " ============================Plugins formaater End=======================
 
+" ============================Plugins markdown Start=======================
+" Disabled automatically folding
+let g:vim_markdown_folding_disabled=1
+" LeTeX math
+let g:vim_markdown_math=1
+" Highlight YAML frontmatter
+let g:vim_markdown_frontmatter=1
 
+" Vim-instant-markdown -----------------
+let g:instant_markdown_autostart = 0
+" ============================Plugins markdown End=======================
+
+" ============================Plugins javacomplete2 Start=======================
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
+" ============================Plugins javacomplete2 End=======================
+
+" ============================Plugins scheme Start=======================
+" let g:solarized_termcolors=256
+" colorscheme solarized 
+" let g:solarized_termtrans=1
+" let g:solarized_degrade=1
+if has('gui_running')
+    colorscheme torte
+else
+"   colorscheme nwombat
+endif
+" ============================Plugins scheme End=======================
 
 
 
