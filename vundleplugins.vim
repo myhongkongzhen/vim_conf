@@ -34,7 +34,7 @@ Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/vim-airline-the
 " Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/asyncrun.vim-master' " 異步
 Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/undotree-rel_5.0' " undo  need vim to be compiled python2.4+
 " Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/gundo.vim-2.6.1' " undo 
-" Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/tagbar-master' " tab exubarant ctags
+Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/tagbar-master' " tab exubarant ctags
 Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/nerdcommenter-2.4.0' " commenter註解
 Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/vim-autoformat-master' " formatter  need to install astyle
 Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/vim-markdown-master' "  markdown
@@ -42,6 +42,7 @@ Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/vim-markdown-ma
 Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/vim-javacomplete2-master' " java autocomplete 
 " Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/vim-colors-xterm-master' " color 
 " Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/vim-colors-solarized-master' " console color 
+Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/delimitMate-master' " 自動括號匹配
 " -----------------------------
 
 call vundle#end()                                                                     " 必須 所有插件需要在下面這行之前
@@ -184,6 +185,10 @@ else
 endif
 " ============================Plugins scheme End=======================
 
+" ============================Plugins tagbar Start=======================
+nmap <F8> :TagbarToggle<CR>
+imap <F8> <Esc>:TagbarToggle<CR>
+" ============================Plugins tagbar End=======================
 
 
 
