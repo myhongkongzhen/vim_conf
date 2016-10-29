@@ -4,7 +4,7 @@ set nocompatible              " 去除VI一致性,必須
 filetype off                  " 必須
 
 let iCanHazVundle=1
-let bundle_dir = 'C:/SWDTOOLS/001-mysoftware/vim/vim-config/bundle/'                                     " 設置包括vundle和初始化相關的runtime path
+let bundle_dir = 'D:/01_opensource/programmes/Vim/bundle/'                                     " 設置包括vundle和初始化相關的runtime path
 let vundle_readme=expand(''.bundle_dir.'Vundle.vim/README.md')
 if !filereadable(vundle_readme)
     echo                                                                                  " Installing Vundle.. "
@@ -20,28 +20,25 @@ call vundle#begin()                                                             
 
 " -----------------------------
 
-Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/tabular-master' " 設置對其，格式化，用指定字符對其
-Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/vim-indent-guides-master' " 設置花括號内内容比對
-Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/nerdtree-5.0.0' " 設置Tree
+Plugin 'godlygeek/tabular' " 設置對其，格式化，用指定字符對其
+Plugin 'nathanaelkane/vim-indent-guides' " 設置花括號内内容比對
+Plugin 'file:///d:/01_opensource/programmes/Vim/bundle/nerdtree-win32unix' " 設置Tree
 " Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/nerdtree-git-plugin-master' " 設置Tree - git
-Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/vim-multiple-cursors-master' " 列選擇
-Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/ctrlp.vim-master' " 模糊查詢
-Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/vim-airline-master' " 狀態欄
-Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/vim-airline-themes-master'
-" Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/vim-bufexplorer-7.4.9'   "列出一打開的文件然後跳轉
-" Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/vjde'              " vjde
-" Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/asyncrun.vim-master' " 異步
-Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/undotree-rel_5.0' " undo  need vim to be compiled python2.4+
+Plugin 'terryma/vim-multiple-cursors' " 列選擇
+Plugin 'kien/ctrlp.vim' " 模糊查詢
+Plugin 'vim-airline/vim-airline' " 狀態欄
+Plugin 'vim-airline/vim-airline-themes'
+" Plugin 'jlanzarotta/bufexplorer.vim'   "列出一打開的文件然後跳轉
+Plugin 'skywind3000/asyncrun.vim' " 異步
+Plugin 'mbbill/undotree' " undo  need vim to be compiled python2.4+
 " Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/gundo.vim-2.6.1' " undo 
-Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/tagbar-master' " tab exubarant ctags
-Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/nerdcommenter-2.4.0' " commenter註解
-Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/vim-autoformat-master' " formatter  need to install astyle
-Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/vim-markdown-master' "  markdown
+Plugin 'majutsushi/tagbar' " tab exubarant ctags
+Plugin 'scrooloose/nerdcommenter' " commenter註解
+Plugin 'Chiel92/vim-autoformat' " formatter  need to install astyle
+Plugin 'plasticboy/vim-markdown' "  markdown
 " Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/vim-instant-markdown-windows' "  markdown
-Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/vim-javacomplete2-master' " java autocomplete 
-" Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/vim-colors-xterm-master' " color 
-" Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/vim-colors-solarized-master' " console color 
-Plugin 'file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/delimitMate-master' " 自動括號匹配
+Plugin 'artur-shaik/vim-javacomplete2' " java autocomplete  
+Plugin 'Raimondi/delimitMate' " 自動括號匹配
 " -----------------------------
 
 call vundle#end()                                                                     " 必須 所有插件需要在下面這行之前
@@ -185,8 +182,8 @@ endif
 " ============================Plugins scheme End=======================
 
 " ============================Plugins tagbar Start=======================
-nmap <F8> :TagbarToggle<CR>
-imap <F8> <Esc>:TagbarToggle<CR>
+nmap <C-F12> :TagbarToggle<CR>
+imap <C-F12> <Esc>:TagbarToggle<CR>
 " ============================Plugins tagbar End=======================
 
 
