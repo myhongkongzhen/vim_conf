@@ -10,8 +10,7 @@ if !filereadable(vundle_readme)
     echo                                                                                  " Installing Vundle.. "
     echo                                                                                  " "
     silent execute '!mkdir -p '.bundle_dir
-    " silent execute '!git clone https://github.com/VundleVim/Vundle.vim.git '.bundle_dir.'Vundle.vim'
-    silent execute '!git clone file:///C:/SWDTOOLS/001-mysoftware/vim/vim-vundle-plugin/Vundle.vim-master '.bundle_dir.'Vundle.vim'
+    silent execute '!git clone https://github.com/VundleVim/Vundle.vim.git '.bundle_dir.'Vundle.vim'
     let iCanHazVundle=0
 endif
 exec 'set rtp^='.bundle_dir.'Vundle.vim/'
