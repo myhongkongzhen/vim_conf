@@ -186,8 +186,8 @@ endif
 " ============================Plugins scheme End=======================
 
 " ============================Plugins tagbar Start=======================
-nmap <F8> :TagbarToggle<CR>
-imap <F8> <Esc>:TagbarToggle<CR>
+nmap <C-F12> :TagbarToggle<CR>
+imap <C-F12> <Esc>:TagbarToggle<CR>
 " ============================Plugins tagbar End=======================
 
 
